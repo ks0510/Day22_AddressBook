@@ -1,6 +1,6 @@
 /*
  * This java program creates address book system using collection for person
- * first name,last name,address,city,zip,phone number and email
+ * first name,last name,address,city,state,zip,phone number and email
  */
 package addressbook;
 import java.util.*;
