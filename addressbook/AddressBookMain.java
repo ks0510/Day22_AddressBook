@@ -86,7 +86,7 @@ public class AddressBookMain {
 			default:
 				System.out.println("Invalid choice");
 	
-			}
+		       }
 		}while(choice!=0);
 		
 		System.out.println(addressBook1);
