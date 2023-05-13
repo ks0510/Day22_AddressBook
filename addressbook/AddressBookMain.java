@@ -34,6 +34,7 @@ public class AddressBookMain {
 		 */
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 
 		/*
 		 * To create address book by using array list data collection with person
@@ -54,6 +55,7 @@ public class AddressBookMain {
 		do {
 			System.out.println("1 TO INSERT PERSON DATA");
 			System.out.println("2 TO EDIT PERSON DATA");
+			System.out.println("3 To DELETE DATA");
 			System.out.println("0 To Exit");
 			choice = sc.nextInt();
 
@@ -92,6 +94,7 @@ public class AddressBookMain {
 				 */
 				System.out.println("Enter person's first name to serch it and edit the data");
 				String name = br1.readLine();
+				boolean status = false;
 				/*
 				 * To find person name in address book
 				 */
@@ -119,14 +122,40 @@ public class AddressBookMain {
 						 */
 						addressBook1.set(i,new Person(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
 						System.out.println("Information updated successfully");
-					
-					} else {
-						System.out.println("Person not found");
-					
-					}
+						status = true;
+					} 
+				   }
+				/*
+				 * If we not found any data it will print it
+				 */
+				if(!status) {
+					System.out.println("Person not found");
 				}
 				break;
-			
+			case 3:
+				/*
+				 * To take name from user and find if we found we will delete it
+				 */
+				System.out.println("Enter person's first name to serch it and delete data");
+				String pname = br2.readLine();
+				boolean status1 = false;
+				/*
+				 * To find person name in address book
+				 */
+				for (int i = 0; i < addressBook1.size(); i++) {
+					if (addressBook1.get(i).getFirstName().equals(pname)) {
+						/*
+						 * To remove data
+						 */
+						addressBook1.remove(i);
+						System.out.println("Data deleted successfully");
+						status1= true;
+					}
+				}
+				if(!status1) {
+					System.out.println("Person not found");
+				}
+				break;
 			case 0:
 				/*
 				 * If you put zero as choice you will out of this loop
