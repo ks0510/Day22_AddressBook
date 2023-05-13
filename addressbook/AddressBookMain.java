@@ -86,10 +86,16 @@ public class AddressBookMain {
 				addressBook1.add(new Person(firstName, lastName, address, city, state, zip, phoneNumber, email));
 				break;
 			case 2:
+				/*
+				 * This case will check for person name in address book and update it 
+				 * if it found name or report that person information is not found
+				 */
 				System.out.println("Enter person's first name to serch it and edit the data");
 				String name = br1.readLine();
+				/*
+				 * To find person name in address book
+				 */
 				for (int i = 0; i < addressBook1.size(); i++) {
-					System.out.println(addressBook1.get(i).getFirstName());
 					if (addressBook1.get(i).getFirstName().equals(name)) {
 						System.out.println("Person found please enter new data");
 						System.out.println("Enter first name");
@@ -109,18 +115,22 @@ public class AddressBookMain {
 						System.out.println("Enter email");
 						String email1 = sc.next();
 						/*
-						 * To add edited data
+						 * To set  edited data at that position
 						 */
-						addressBook1.add(new Person(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
-						break;
+						addressBook1.set(i,new Person(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
+						System.out.println("Information updated successfully");
+					
 					} else {
 						System.out.println("Person not found");
-						break;
+					
 					}
 				}
 				break;
 			
 			case 0:
+				/*
+				 * If you put zero as choice you will out of this loop
+				 */
 				System.out.println("Exit");
 				break;
 			default:
