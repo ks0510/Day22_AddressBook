@@ -1,5 +1,5 @@
 /*
- * This java program give person's information by city name.
+ * This java program count number of persons in address book by city and state.
  */
 package addressbook;
 import java.util.*;
@@ -50,17 +50,24 @@ public class AddressBook3 {
 		addressBook1.put(p2.getCity(), p2);
 		addressBook1.put(p3.getCity(), p3);
 		
+		System.out.println("Enter city to search");
+		String city = sc.next();
+		
 		/*
 		 * To display our addressbook1
 		 * 
 		 */
 		Set<Map.Entry<String,Person>> entries = addressBook1.entrySet();
 		
+		int count = 0;
 		for(Map.Entry<String,Person> p : entries) {
-			System.out.println(p.getKey());
-			Person person = p.getValue();
-			System.out.println(person);
+			if(p.getKey()==city) {
+				count++;
+				Person person = p.getValue();
+				System.out.println(person);
+			}
 		}
+		System.out.println(count+"are numbers of persons in address book");
 		
 		/*
 		 * Adding to address book with respect to state
@@ -70,17 +77,25 @@ public class AddressBook3 {
 		addressBook2.put(p2.getState(), p2);
 		addressBook2.put(p3.getState(), p3);
 		
+		
+		System.out.println("Enter state to search");
+		String state = sc.next();
+		int count1=0;
+		
 		/*
-		 * To display our addressbook2
+		 * To count persons from addressbook2
 		 * 
 		 */
 		Set<Map.Entry<String,Person>> entries2 = addressBook2.entrySet();
 		
 		for(Map.Entry<String,Person> p : entries2) {
-			System.out.println(p.getKey());
+			if(p.getKey()==state) {
+				count1++;
 			Person person = p.getValue();
 			System.out.println(person);
 		}
 		}
+		System.out.println(count1+"are numbers of persons in address book");
 	}
+}
 
