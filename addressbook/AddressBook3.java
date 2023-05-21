@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  *
  */
 
-public class AddressBook_3 {
+public class AddressBook3 {
 
 	public static void main(String[] args) throws IOException {
 		
