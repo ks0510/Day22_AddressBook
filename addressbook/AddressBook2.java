@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
  * @author Kaif
  *
  */
-public class AddressBook_2 {
+public class AddressBook2 {
 
 	/**
 	 * This is main method of program
