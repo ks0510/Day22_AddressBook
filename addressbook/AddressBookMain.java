@@ -35,7 +35,7 @@ public class AddressBookMain {
 		 * To create address book  by using array list data collection
 		 * with person parameter(UC1)  
 		 */
-		ArrayList<Person> addressBook1 = new ArrayList<Person>();
+		ArrayList<Person1> addressBook1 = new ArrayList<Person1>();
 		
 		/*
 		 * To declare choice
@@ -78,7 +78,7 @@ public class AddressBookMain {
 				 * To add all information we are taken from user with creating new person object
 				 * every time we add data
 				 */
-				addressBook1.add(new Person(firstName, lastName,address,city,state,zip,phoneNumber,email));
+				addressBook1.add(new Person1(firstName, lastName,address,city,state,zip,phoneNumber,email));
 				break;
 			case 0:
 				System.out.println("Exit");
