@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
  * @author Kaif
  *
  */
-public class AddressBook2 {
+public class AddressBook_2 {
 
 	/**
 	 * This is main method of program
@@ -36,11 +36,11 @@ public class AddressBook2 {
 		/*
 		 * To create multiple address books
 		 */
-		ArrayList<Person> addressBook1 = new ArrayList<Person>();
+		ArrayList<Person1> addressBook1 = new ArrayList<Person1>();
 
-		ArrayList<Person> addressBook2 = new ArrayList<Person>();
+		ArrayList<Person1> addressBook2 = new ArrayList<Person1>();
 
-		ArrayList<Person> addressBook3 = new ArrayList<Person>();
+		ArrayList<Person1> addressBook3 = new ArrayList<Person1>();
 
 		int choice;
 		do {
@@ -83,7 +83,7 @@ public class AddressBook2 {
 				 * To add all information we are taken from user with creating new person object
 				 * every time we add data
 				 */
-				addressBook1.add(new Person(firstName, lastName, address, city, state, zip, phoneNumber, email));
+				addressBook1.add(new Person1(firstName, lastName, address, city, state, zip, phoneNumber, email));
 				break;
 			case 2:
 				/*
@@ -111,7 +111,7 @@ public class AddressBook2 {
 				 * every time we add data
 				 */
 				addressBook2
-						.add(new Person(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
+						.add(new Person1(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
 				break;
 			case 3:
 				/*
@@ -139,7 +139,7 @@ public class AddressBook2 {
 				 * every time we add data
 				 */
 				addressBook3
-						.add(new Person(firstName2, lastName2, address2, city2, state2, zip2, phoneNumber2, email2));
+						.add(new Person1(firstName2, lastName2, address2, city2, state2, zip2, phoneNumber2, email2));
 				break;
 			case 4:
 				/*
@@ -147,44 +147,32 @@ public class AddressBook2 {
 				 */
 				System.out.println("Enter name to search");
 				String name = sc.next();
-				int j = 1;
-				while (j < 4) {
-					boolean found = false;
-					for (int i = 0; i < addressBook1.size(); i++) {
-						if (addressBook1.get(i).getFirstName().equals(name)) {
-							System.out.println("Person found in first address book");
-							found = true;
-							break;
-						}
-					}
-					if (found != true) {
-						j++;
-					}
-					if (j == 2) {
-						for (int i = 0; i < addressBook2.size(); i++) {
-							if (addressBook2.get(i).getFirstName().equals(name)) {
-								System.out.println("Person found in second address book");
-								found = true;
-							}
-							break;
-						}
-						if (found != true) {
-							j++;
-						}
-					} else if (j == 3) {
-						for (int i = 0; i < addressBook3.size(); i++) {
-							if (addressBook3.get(i).getFirstName().equals(name)) {
-								System.out.println("Person found in third address book");
-								found = true;
-							}
-							break;
-						}
-						if (found != true) {
-							System.out.println("Person not found in any address book");
-						}
+				boolean status = false;
 
+				for (int i = 0; i < addressBook1.size(); i++) {
+					if (addressBook1.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in first address book");
+						status = true;
+						break;
 					}
 				}
+				for (int i = 0; i < addressBook2.size(); i++) {
+					if (addressBook2.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in second address book");
+						status = true;
+					}
+					break;
+				}
+				for (int i = 0; i < addressBook3.size(); i++) {
+					if (addressBook3.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in third address book");
+						status = true;
+					}
+					break;
+				}
+				if (!status)
+					System.out.println("Person not found in any address book");
+
 				break;
 			case 0:
 				System.out.println("Exited");
