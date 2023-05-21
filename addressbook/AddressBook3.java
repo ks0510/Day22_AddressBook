@@ -1,101 +1,187 @@
 /*
- * This java program count number of persons in address book by city and state.
+ * This java program add person in multiple address book and search
+ * person's information in multiple address book.
  */
 package addressbook;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 /**
  * 
  * @author Kaif
  *
  */
+public class AddressBook_2 {
 
-public class AddressBook3 {
-
+	/**
+	 * This is main method of program
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
-		
-		Scanner sc = new Scanner(System.in); 
+
+		/*
+		 * To create scanner and bufferred reader objects for taking objects
+		 */
+		Scanner sc = new Scanner(System.in);
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-		
 		/*
-		 * To create address book with city and person information
+		 * To create multiple address books
 		 */
-		HashMap<String,Person> addressBook1=new HashMap<String,Person>();
-		
-		/*
-		 * To create address book with state and person inforamtion
-		 */
-		HashMap<String,Person> addressBook2=new HashMap<String,Person>();
-		
-		/*
-		 * To take user input for pesron information we are making person object with different information
-		 * 1)First name 2)Second name 3) Address 4)City 5)State 6)Zip code 7)Phone number 8)Email
-		 */
-		System.out.println("enter person1 information");
-		Person p1 = new Person(br.readLine(),br.readLine(),br.readLine(),br.readLine(),br.readLine(), br.read(),br.readLine(),br2.readLine());
-		System.out.println("enter person2 information");
-		Person p2 = new Person(br1.readLine(),br1.readLine(),br1.readLine(),br1.readLine(),br1.readLine(), br1.read(),br1.readLine(),br1.readLine());
-		System.out.println("enter person3 information");
-		Person p3 = new Person(br2.readLine(),br2.readLine(),br2.readLine(),br2.readLine(),br2.readLine(), br2.read(),br2.readLine(),br2.readLine());
-	
-		/*
-		 * Adding to address book with respect to city 
-		 */
-		
-		addressBook1.put(p1.getCity(), p1);
-		addressBook1.put(p2.getCity(), p2);
-		addressBook1.put(p3.getCity(), p3);
-		
-		System.out.println("Enter city to search");
-		String city = sc.next();
-		
-		/*
-		 * To display our addressbook1
-		 * 
-		 */
-		Set<Map.Entry<String,Person>> entries = addressBook1.entrySet();
-		
-		int count = 0;
-		for(Map.Entry<String,Person> p : entries) {
-			if(p.getKey()==city) {
-				count++;
-				Person person = p.getValue();
-				System.out.println(person);
+		ArrayList<Person1> addressBook1 = new ArrayList<Person1>();
+
+		ArrayList<Person1> addressBook2 = new ArrayList<Person1>();
+
+		ArrayList<Person1> addressBook3 = new ArrayList<Person1>();
+
+		int choice;
+		do {
+			System.out.println("1 TO ADD DATA IN ADDRESSBOOK1");
+
+			System.out.println("2 TO ADD DATA IN ADDRESSBOOK2");
+
+			System.out.println("3 TO ADD DATA IN ADDRESSBOOK3");
+
+			System.out.println("4 TO FIND DATA IN ALL BOOKS");
+
+			System.out.println("0 TO EXIT");
+
+			choice = sc.nextInt();
+
+			switch (choice) {
+
+			case 1:
+				/*
+				 * To take data of person to add in address book
+				 */
+				System.out.println("Enter first name");
+				String firstName = sc.next();
+				System.out.println("Enter last name");
+				String lastName = sc.next();
+				System.out.println("Enter address");
+				String address = sc.next();
+				System.out.println("Enter city");
+				String city = br.readLine();
+				System.out.println("Enter state");
+				String state = br.readLine();
+				System.out.println("Enter zip");
+				int zip = br.read();
+				System.out.println("Enter phone number");
+				String phoneNumber = sc.next();
+				System.out.println("Enter email");
+				String email = sc.next();
+
+				/*
+				 * To add all information we are taken from user with creating new person object
+				 * every time we add data
+				 */
+				addressBook1.add(new Person1(firstName, lastName, address, city, state, zip, phoneNumber, email));
+				break;
+			case 2:
+				/*
+				 * To take data of person to add in address book
+				 */
+				System.out.println("Enter first name");
+				String firstName1 = sc.next();
+				System.out.println("Enter last name");
+				String lastName1 = sc.next();
+				System.out.println("Enter address");
+				String address1 = sc.next();
+				System.out.println("Enter city");
+				String city1 = br.readLine();
+				System.out.println("Enter state");
+				String state1 = br.readLine();
+				System.out.println("Enter zip");
+				int zip1 = br.read();
+				System.out.println("Enter phone number");
+				String phoneNumber1 = sc.next();
+				System.out.println("Enter email");
+				String email1 = sc.next();
+
+				/*
+				 * To add all information we are taken from user with creating new person object
+				 * every time we add data
+				 */
+				addressBook2
+						.add(new Person1(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1));
+				break;
+			case 3:
+				/*
+				 * To take data of person to add in address book
+				 */
+				System.out.println("Enter first name");
+				String firstName2 = sc.next();
+				System.out.println("Enter last name");
+				String lastName2 = sc.next();
+				System.out.println("Enter address");
+				String address2 = sc.next();
+				System.out.println("Enter city");
+				String city2 = br.readLine();
+				System.out.println("Enter state");
+				String state2 = br.readLine();
+				System.out.println("Enter zip");
+				int zip2 = br.read();
+				System.out.println("Enter phone number");
+				String phoneNumber2 = sc.next();
+				System.out.println("Enter email");
+				String email2 = sc.next();
+
+				/*
+				 * To add all information we are taken from user with creating new person object
+				 * every time we add data
+				 */
+				addressBook3
+						.add(new Person1(firstName2, lastName2, address2, city2, state2, zip2, phoneNumber2, email2));
+				break;
+			case 4:
+				/*
+				 * To search the person in three address books
+				 */
+				System.out.println("Enter name to search");
+				String name = sc.next();
+				boolean status = false;
+
+				for (int i = 0; i < addressBook1.size(); i++) {
+					if (addressBook1.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in first address book");
+						status = true;
+						break;
+					}
+				}
+				for (int i = 0; i < addressBook2.size(); i++) {
+					if (addressBook2.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in second address book");
+						status = true;
+					}
+					break;
+				}
+				for (int i = 0; i < addressBook3.size(); i++) {
+					if (addressBook3.get(i).getFirstName().equals(name)) {
+						System.out.println("Person found in third address book");
+						status = true;
+					}
+					break;
+				}
+				if (!status)
+					System.out.println("Person not found in any address book");
+
+				break;
+			case 0:
+				System.out.println("Exited");
+				break;
+			default:
+				System.out.println("Invalid choice");
 			}
-		}
-		System.out.println(count+"are numbers of persons in address book");
-		
-		/*
-		 * Adding to address book with respect to state
-		 */
-		
-		addressBook2.put(p1.getState(), p1);
-		addressBook2.put(p2.getState(), p2);
-		addressBook2.put(p3.getState(), p3);
-		
-		
-		System.out.println("Enter state to search");
-		String state = sc.next();
-		int count1=0;
-		
-		/*
-		 * To count persons from addressbook2
-		 * 
-		 */
-		Set<Map.Entry<String,Person>> entries2 = addressBook2.entrySet();
-		
-		for(Map.Entry<String,Person> p : entries2) {
-			if(p.getKey()==state) {
-				count1++;
-			Person person = p.getValue();
-			System.out.println(person);
-		}
-		}
-		System.out.println(count1+"are numbers of persons in address book");
+
+		} while (choice != 0);
+
 	}
 }
-
