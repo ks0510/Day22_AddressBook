@@ -1,6 +1,8 @@
 package addressbook;
 
-public class Person1 {
+import java.io.Serializable;
+
+public class Person1 implements Serializable {
 	/*
 	 * To declare person's information for constructor
 	 */
